@@ -1,7 +1,9 @@
 {
-  "name": "hierarchyjs",
+  "name": "hierarchy",
+  "description": "Convert JSON object to a beautiful string representation of a directory structure",
+  "homepage": "https://github.com/bevacqua/hierarchy.git",
   "version": "1.0.0",
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "2.4.1"
   }
 }

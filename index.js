@@ -61,20 +61,8 @@ function push (state, relationship, name) {
     state.steps.push(state.indent + relationship + name);
 }
 
-var input = {
-    foo: {
-        bar: {
-            $files: ['baz.js', 'piece.js']
-        },
-        paz: {
-            $files: []
-        }
-    },
-    baz: {
-        $files: ['taz.js']
-    },
-    $files: ['Gruntfile.js', 'package.json']
+module.exports = function (input) {
+    var result = walkOnDirectories(input);
+    var tree = result.join('\n');
+    return tree;
 };
-
-var result = walkOnDirectories(input);
-console.log(result.join('\n'));
