@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('lodash');
+
 var part = {
     etc:            ':',
     childIndent:    '│   ',
@@ -10,7 +10,7 @@ var part = {
 };
 
 function walkOnDirectories (crumb, state) {
-    var keys = _.keys(crumb);
+    var keys = Object.keys(crumb);
 
     if (state === void 0) {
         state = {
@@ -19,7 +19,7 @@ function walkOnDirectories (crumb, state) {
         };
     }
 
-    _.each(keys, function (key, i) {
+    keys.forEach(function (key, i) {
         var node = crumb[key];
         var last = i === keys.length - 1;
 
@@ -40,7 +40,7 @@ function walkOnDirectories (crumb, state) {
 
 function walkOnFiles (files, state, last) {
     var relationship = part.childSiblings;
-    _.each(files, function (file, i) {
+    files.forEach(function (file, i) {
         if (i === files.length - 1) {
             relationship = last ? part.childLast : part.childSiblings;
         }
