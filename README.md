@@ -25,7 +25,7 @@ Considering the `input.json` file:
     "baz": {
         "$files": ["taz.js"]
     },
-    $files: ["Gruntfile.js", "package.json"]
+    "$files": ["Gruntfile.js", "package.json"]
 }
 ```
 
