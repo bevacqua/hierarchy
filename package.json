@@ -3,5 +3,8 @@
   "description": "Convert JSON object to a beautiful string representation of a directory structure",
   "homepage": "https://github.com/bevacqua/hierarchy.git",
   "version": "1.0.0",
+  "bin": {
+    "hierarchy": "./bin/hierarchy"
+  },
   "dependencies": {}
 }
