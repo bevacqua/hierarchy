@@ -62,6 +62,11 @@ function push (state, relationship, name) {
 }
 
 module.exports = function (input) {
+
+    if (typeof input === 'string') {
+        input = JSON.parse(input);
+    }
+
     var result = walkOnDirectories(input);
     var tree = result.join('\n');
     return tree;

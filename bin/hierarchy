@@ -6,9 +6,13 @@ var fs = require('fs');
 var path = require('path');
 var hierarchy = require('../index.js');
 var arg = process.argv[2];
-var file = path.resolve(__dirname, arg);
+var file = path.resolve(process.cwd(), arg);
 
 fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
+    if (err) {
+        throw err;
+    }
+
     var tree = hierarchy(data);
     console.log(tree);
 });

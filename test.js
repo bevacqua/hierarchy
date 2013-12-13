@@ -1,18 +1,6 @@
 'use strict';
 
-var input = {
-    foo: {
-        bar: {
-            $files: ['baz.js', 'piece.js']
-        },
-        paz: {}
-    },
-    baz: {
-        $files: ['taz.js']
-    },
-    $files: ['Gruntfile.js', 'package.json']
-};
-
+var input = require('./test.input.json');
 var hierarchy = require('./index.js');
 var tree = hierarchy(input);
 
