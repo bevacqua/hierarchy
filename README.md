@@ -32,7 +32,7 @@ Considering the `input.json` file:
 ## From the command line
 
 ```shell
-hierarch input.json
+hierarchy input.json
 ```
 
 ## In code
