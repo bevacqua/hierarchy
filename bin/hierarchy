@@ -5,7 +5,7 @@
 var fs = require('fs');
 var path = require('path');
 var hierarchy = require('../index.js');
-var arg = process.args[2];
+var arg = process.argv[2];
 var file = path.resolve(__dirname, arg);
 
 fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
