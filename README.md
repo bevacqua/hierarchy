@@ -12,59 +12,65 @@ npm i --save hierarchyjs
 
 # Usage
 
+Considering the `input.json` file:
+
+```json
+{
+    "foo": {
+        "bar": {
+            "$files": ["baz.js", "piece.js"]
+        },
+        "paz": {}
+    },
+    "baz": {
+        "$files": ["taz.js"]
+    },
+    $files: ["Gruntfile.js", "package.json"]
+}
+```
+
+## From the command line
+
+```shell
+hierarch input.json
+```
+
+## In code
+
 ```js
 var hierarchy = require('hierarchy');
-var input = {
-    foo: {
-        bar: {
-            $files: ['baz.js', 'piece.js']
-        },
-        paz: {}
-    },
-    baz: {
-        $files: ['taz.js']
-    },
-    $files: ['Gruntfile.js', 'package.json']
-};
+var input = require('input.json');
 var tree = hierarchy(input);
 
 console.log(tree);
 ```
 
-Sample Output:
-
-```shell
-├── foo
-│   ├── bar
-│   │   ├── baz.js
-│   │   └── piece.js
-│   └── paz
-├── baz
-│   └── taz.js
-├── Gruntfile.js
-└── package.json
-```
+# Notation
 
 The input is expected to be a tree-like object with optional `$files` arrays that describe a list of files in a directory. The `$files` construct can actually be avoided by treating files as empty directories, but its a little convenience sugar.
 
 The following has the exact same output as the previous example.
 
-```js
-var input = {
-    foo: {
-        bar: {
-            'baz.js': {},
-            'piece.js': {}
+```json
+{
+    "foo": {
+        "bar": {
+            "$files": {
+                "baz.js": {},
+                "piece.js": {}
+            },
         },
-        paz: {}
+        "paz": {}
     },
-    baz: {
-        'taz.js': {}
+    "baz": {
+        "taz.js": {}
     },
-    'Gruntfile.js': {},
-    'package.json' : {}
-};
+    "Gruntfile.js": {},
+    "package.json": {}
+}
 ```
+
+A file named `$etc` might be used to include a "and more.." `'....'` kind of message.
 
 # License
 
